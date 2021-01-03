@@ -7,7 +7,7 @@ function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCard
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
-    <main className="content">
+    <>
      <section className="profile page__profile">
        <div className="profile__person">
          <div className="profile__avatar" onClick={onEditAvatar} style={{backgroundImage: `url(${currentUser.avatar})`}}></div>
@@ -28,6 +28,6 @@ function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCard
            onCardDelete = {onCardDelete}
            card         = {card}/>)
         }</section>
-        </main>);
+        </>);
 }
 export default Main;

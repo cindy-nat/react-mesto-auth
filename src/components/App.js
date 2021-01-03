@@ -128,18 +128,18 @@ function App() {
 
       <div className="page">
         <Header />
-
-        <Route path="/sign-in">
+        <main className="content">
+          <Route path="/sign-in">
             <Login/>
           </Route>
 
-        <Route path="/sign-up">
-          <Register/>
-        </Route>
+          <Route path="/sign-up">
+            <Register/>
+          </Route>
 
-      <Route path="/main">
-        <CurrentUserContext.Provider value={currentUser}>
-        <Main
+        <Route path="/main">
+          <CurrentUserContext.Provider value={currentUser}>
+            <Main
           onEditAvatar  = {handleEditAvatarClick}
           onEditProfile = {handleEditProfileClick}
           onAddPlace    = {handleAddPlaceClick}
@@ -147,43 +147,44 @@ function App() {
           cards         = {cards}
           onCardLike    = {handleCardLike}
           onCardDelete  = {handleCardDelete}
-        />
+            />
 
+            <EditProfilePopup
+              isOpen       = {isEditProfilePopupOpen}
+              onClose      = {closeAllPopups}
+              onUpdateUser = {handleUpdateUser}
+              isLoading    = {loading}/>
 
-        <EditProfilePopup
-            isOpen       = {isEditProfilePopupOpen}
-            onClose      = {closeAllPopups}
-            onUpdateUser = {handleUpdateUser}
-            isLoading    = {loading}/>
+            <EditAvatarPopup
+              isOpen         = {isEditAvatarPopupOpen}
+              onClose        = {closeAllPopups}
+              onUpdateAvatar = {handleUpdateAvatar}
+              isLoading      = {loading}/>
 
-          <EditAvatarPopup
-            isOpen         = {isEditAvatarPopupOpen}
-            onClose        = {closeAllPopups}
-            onUpdateAvatar = {handleUpdateAvatar}
-            isLoading      = {loading}/>
+            <AddPlacePopup
+              isOpen     = {isAddPlacePopupOpen}
+              onClose    = {closeAllPopups}
+              onAddPlace = {handleAddPlaceSubmit}
+              isLoading  = {loading}
+            />
 
-          <AddPlacePopup
-            isOpen     = {isAddPlacePopupOpen}
-            onClose    = {closeAllPopups}
-            onAddPlace = {handleAddPlaceSubmit}
-            isLoading  = {loading}
-          />
+            <ConfirmDeletePopup
+              isOpen   = {isDeleteSubmitPopupOpen}
+              cardId   = {cardIdToDelete}
+              onSubmit = {handleCardDeleteSubmit}
+              onClose  = {closeAllPopups}/>
 
-          <ConfirmDeletePopup
-            isOpen   = {isDeleteSubmitPopupOpen}
-            cardId   = {cardIdToDelete}
-            onSubmit = {handleCardDeleteSubmit}
-            onClose  = {closeAllPopups}/>
-
-        <ImagePopup
-        card    = {selectedCard}
-        onClose = {closeAllPopups}/>
+              <ImagePopup
+              card    = {selectedCard}
+              onClose = {closeAllPopups}/>
         </CurrentUserContext.Provider>
       </Route>
+
         <Route exact path='/'>
           {loggedIn ? <Redirect to="/main"/> : <Redirect to="/sign-in"/>}
         </Route>
-
+      </main>
+        
         <Footer />
       </div>
 

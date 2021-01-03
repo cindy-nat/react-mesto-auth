@@ -43,3 +43,10 @@
 @import url('./blocks/popup/__error/popup__error.css');
 @import url('./blocks/popup/__error/_visible/popup__error_visible.css');
 @import url('./blocks/popup/__submit/_disabled/popup__submit_disabled.css');
+
+@import "./blocks/form/form.css";
+@import "./blocks/form/__title/form__title.css";
+@import "./blocks/form/__input/form__input.css";
+@import "./blocks/form/__submit-button/form__submit-button.css";
+@import "./blocks/form/__text/form__text.css";
+@import "./blocks/form/__link/form__link.css";
