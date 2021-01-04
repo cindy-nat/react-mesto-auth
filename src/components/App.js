@@ -11,7 +11,6 @@ import AddPlacePopup from "./AddPlacePopup";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import Login from "./Login";
 import Register from "./Register";
-import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
@@ -131,9 +130,6 @@ function App() {
         <Switch>
           <Route path="/sign-in">
             <Login/>
-            <InfoTooltip
-              imageUrl = "/react-mesto-auth/static/media/error-picture.df8eddf6.svg"
-              text="Что-то пошло не так! Попробуйте ещё раз."/>
           </Route>
 
           <Route path="/sign-up">
