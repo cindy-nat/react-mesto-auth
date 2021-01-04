@@ -3,7 +3,7 @@ import Card from "./Card";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import Header from "./Header";
 
-function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCardDelete, onCardLike, email}) {
+function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCardDelete, onCardLike, email, onSignOut}) {
 
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -12,7 +12,8 @@ function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCard
     <Header
     email={email}
     text="Выйти"
-    textColor="#A9A9A9"/>
+    textColor="#A9A9A9"
+    handleSignOut = {onSignOut}/>
   <main className="content">
      <section className="profile page__profile">
        <div className="profile__person">

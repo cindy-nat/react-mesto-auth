@@ -1,11 +1,11 @@
 import React from "react";
 import InfoTooltip from "./InfoTooltip";
 import Header from "./Header";
-import {useHistory, withRouter} from "react-router";
+import {useHistory, withRouter} from "react-router-dom";
 import * as Auth from '../utils/auth';
 
 
-function Login () {
+function Login ({handleLogin}) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [infoTooltipIsOpened, setInfoTooltip] = React.useState(false);
@@ -23,6 +23,7 @@ function Login () {
       .then(data => {
         if(data.token) {
           localStorage.setItem('jwt', data.token);
+          handleLogin();
           history.push("/");
         }
       })

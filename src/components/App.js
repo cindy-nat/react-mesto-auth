@@ -36,10 +36,20 @@ function App() {
       if(data) {
         setEmail(data.data.email);
         setLoggedIn(true);
+        history.push("");
       }
     })
+  }
 
+  // выход из пользователя
+  const handleSignOut = () => {
+    localStorage.removeItem('jwt');
+      setLoggedIn(false);
+      history.push('/sign-in')
+  }
 
+  const handleSignIn = () => {
+    setLoggedIn(true);
   }
 
   //получение данных
@@ -54,10 +64,7 @@ function App() {
 
   React.useEffect(()=>{
     tokenCheck();
-    if(loggedIn) {
-      history.push("/")
-    };
-  },[loggedIn]);
+  },[]);
 
   //функции для установки состояния открытого попапа
     function handleEditAvatarClick () {
@@ -153,7 +160,7 @@ function App() {
       <div className="page">
         <Switch>
           <Route path="/sign-in">
-            <Login/>
+            <Login handleLogin = {handleSignIn}/>
           </Route>
 
           <Route path="/sign-up">
@@ -172,6 +179,7 @@ function App() {
                         onCardLike    = {handleCardLike}
                         onCardDelete  = {handleCardDelete}
                         email         = {email}
+                        onSignOut     = {handleSignOut}
         >
       </ProtectedRoute>
           <EditProfilePopup
