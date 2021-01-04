@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -13,6 +13,7 @@ import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import Login from "./Login";
 import Register from "./Register";
 import InfoTooltip from "./InfoTooltip";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
@@ -128,6 +129,7 @@ function App() {
   return (
 
       <div className="page">
+        <Switch>
           <Route path="/sign-in">
             <Login/>
             <InfoTooltip
@@ -142,54 +144,56 @@ function App() {
             text="Вы успешно зарегистрировались!"/>
           </Route>
 
-        <Route path="/main">
-          <CurrentUserContext.Provider value={currentUser}>
-            <Main
-          onEditAvatar  = {handleEditAvatarClick}
-          onEditProfile = {handleEditProfileClick}
-          onAddPlace    = {handleAddPlaceClick}
-          onCardClick   = {handleCardClick}
-          cards         = {cards}
-          onCardLike    = {handleCardLike}
-          onCardDelete  = {handleCardDelete}
-            />
-
-            <EditProfilePopup
-              isOpen       = {isEditProfilePopupOpen}
-              onClose      = {closeAllPopups}
-              onUpdateUser = {handleUpdateUser}
-              isLoading    = {loading}/>
-
-            <EditAvatarPopup
-              isOpen         = {isEditAvatarPopupOpen}
-              onClose        = {closeAllPopups}
-              onUpdateAvatar = {handleUpdateAvatar}
-              isLoading      = {loading}/>
-
-            <AddPlacePopup
-              isOpen     = {isAddPlacePopupOpen}
-              onClose    = {closeAllPopups}
-              onAddPlace = {handleAddPlaceSubmit}
-              isLoading  = {loading}
-            />
-
-            <ConfirmDeletePopup
-              isOpen   = {isDeleteSubmitPopupOpen}
-              cardId   = {cardIdToDelete}
-              onSubmit = {handleCardDeleteSubmit}
-              onClose  = {closeAllPopups}/>
-
-              <ImagePopup
-              card    = {selectedCard}
-              onClose = {closeAllPopups}/>
-        </CurrentUserContext.Provider>
-      </Route>
-
-        <Route exact path='/'>
-          {loggedIn ? <Redirect to="/main"/> : <Redirect to="/sign-in"/>}
-        </Route>
+        <CurrentUserContext.Provider value={currentUser}>
+        <ProtectedRoute exact path="/"
+                        loggedIn={loggedIn}
+                        component={Main}
+                        onEditAvatar  = {handleEditAvatarClick}
+                        onEditProfile = {handleEditProfileClick}
+                        onAddPlace    = {handleAddPlaceClick}
+                        onCardClick   = {handleCardClick}
+                        cards         = {cards}
+                        onCardLike    = {handleCardLike}
+                        onCardDelete  = {handleCardDelete}
+        >
+      </ProtectedRoute>
 
         <Footer />
+
+        <EditProfilePopup
+          isOpen       = {isEditProfilePopupOpen}
+          onClose      = {closeAllPopups}
+          onUpdateUser = {handleUpdateUser}
+          isLoading    = {loading}/>
+
+        <EditAvatarPopup
+          isOpen         = {isEditAvatarPopupOpen}
+          onClose        = {closeAllPopups}
+          onUpdateAvatar = {handleUpdateAvatar}
+          isLoading      = {loading}/>
+
+        <AddPlacePopup
+          isOpen     = {isAddPlacePopupOpen}
+          onClose    = {closeAllPopups}
+          onAddPlace = {handleAddPlaceSubmit}
+          isLoading  = {loading}
+        />
+
+        <ConfirmDeletePopup
+          isOpen   = {isDeleteSubmitPopupOpen}
+          cardId   = {cardIdToDelete}
+          onSubmit = {handleCardDeleteSubmit}
+          onClose  = {closeAllPopups}/>
+
+        <ImagePopup
+          card    = {selectedCard}
+          onClose = {closeAllPopups}/>
+        </CurrentUserContext.Provider>
+
+        <Route>
+          {loggedIn ? <Redirect to="/"/> : <Redirect to="/sign-in"/>}
+        </Route>
+        </Switch>
       </div>
 
   );
