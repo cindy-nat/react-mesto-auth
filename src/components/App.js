@@ -128,8 +128,6 @@ function App() {
   return (
 
       <div className="page">
-        <Header />
-        <main className="content">
           <Route path="/sign-in">
             <Login/>
             <InfoTooltip
@@ -190,7 +188,6 @@ function App() {
         <Route exact path='/'>
           {loggedIn ? <Redirect to="/main"/> : <Redirect to="/sign-in"/>}
         </Route>
-      </main>
 
         <Footer />
       </div>

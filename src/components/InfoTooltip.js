@@ -2,7 +2,7 @@ import React from "react";
 
 function InfoTooltip ({ onClose, imageUrl, text }) {
   return (
-    <div className={`popup popup_opened`}>
+    <div className={`popup`}>
       <div className="popup__form">
         <div className="popup__picture-title"
              style={{backgroundImage: `url(${imageUrl})`}}></div>

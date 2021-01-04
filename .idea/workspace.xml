@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb363f33-3aaf-4b0a-b0cc-b96f69e95b43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/blocks/popup/__picture-title/popup__picture-title.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/popup/__title/_position/popup__title_position_center.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blocks/header/__container/header__container.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blocks/header/__email/header__email.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blocks/header/__text/header__text.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/header/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InfoTooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoTooltip.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +58,7 @@
       <workItem from="1609607629245" duration="1204000" />
       <workItem from="1609675303162" duration="78000" />
       <workItem from="1609694817101" duration="12677000" />
-      <workItem from="1609758222050" duration="1109000" />
+      <workItem from="1609758222050" duration="2425000" />
     </task>
     <servers />
   </component>
