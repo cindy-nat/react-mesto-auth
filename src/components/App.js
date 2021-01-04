@@ -12,6 +12,7 @@ import AddPlacePopup from "./AddPlacePopup";
 import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import Login from "./Login";
 import Register from "./Register";
+import InfoTooltip from "./InfoTooltip";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
@@ -131,10 +132,16 @@ function App() {
         <main className="content">
           <Route path="/sign-in">
             <Login/>
+            <InfoTooltip
+              imageUrl = "/react-mesto-auth/static/media/error-picture.df8eddf6.svg"
+              text="Что-то пошло не так! Попробуйте ещё раз."/>
           </Route>
 
           <Route path="/sign-up">
             <Register/>
+            <InfoTooltip
+            imageUrl="/react-mesto-auth/static/media/done-picture.1b6082f8.svg"
+            text="Вы успешно зарегистрировались!"/>
           </Route>
 
         <Route path="/main">
@@ -184,7 +191,7 @@ function App() {
           {loggedIn ? <Redirect to="/main"/> : <Redirect to="/sign-in"/>}
         </Route>
       </main>
-        
+
         <Footer />
       </div>
 
