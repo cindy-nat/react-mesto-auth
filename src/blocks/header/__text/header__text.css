@@ -4,4 +4,9 @@
   font-weight: 400;
   line-height: 22px;
   color: #FFFFFF;
+  text-decoration: none;
+}
+
+.header__text:hover {
+  opacity: .7;
 }

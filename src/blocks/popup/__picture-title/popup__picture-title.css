@@ -1,7 +1,7 @@
 .popup__picture-title {
   width: 120px;
   height: 120px;
-  background-image: url("../../../images/error-picture.svg");
+  background-image: url("../../../images/done-picture.svg");
   align-self: center;
   margin: 60px 0 32px;
 

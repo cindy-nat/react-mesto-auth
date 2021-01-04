@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb363f33-3aaf-4b0a-b0cc-b96f69e95b43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ProtectedRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/form/__submit-button/form__submit-button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/form/__submit-button/form__submit-button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/header/__text/header__text.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/header/__text/header__text.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__picture-title/popup__picture-title.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__picture-title/popup__picture-title.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InfoTooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoTooltip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../express-mesto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -49,7 +55,10 @@
       <workItem from="1609607629245" duration="1204000" />
       <workItem from="1609675303162" duration="78000" />
       <workItem from="1609694817101" duration="12677000" />
-      <workItem from="1609758222050" duration="3891000" />
+      <workItem from="1609758222050" duration="6634000" />
+      <workItem from="1609764893694" duration="90000" />
+      <workItem from="1609783299263" duration="2004000" />
+      <workItem from="1609785327081" duration="921000" />
     </task>
     <servers />
   </component>

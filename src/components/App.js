@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
@@ -139,9 +138,6 @@ function App() {
 
           <Route path="/sign-up">
             <Register/>
-            <InfoTooltip
-            imageUrl="/react-mesto-auth/static/media/done-picture.1b6082f8.svg"
-            text="Вы успешно зарегистрировались!"/>
           </Route>
 
         <CurrentUserContext.Provider value={currentUser}>
@@ -157,43 +153,45 @@ function App() {
                         onCardDelete  = {handleCardDelete}
         >
       </ProtectedRoute>
+          <EditProfilePopup
+            isOpen       = {isEditProfilePopupOpen}
+            onClose      = {closeAllPopups}
+            onUpdateUser = {handleUpdateUser}
+            isLoading    = {loading}/>
+
+          <EditAvatarPopup
+            isOpen         = {isEditAvatarPopupOpen}
+            onClose        = {closeAllPopups}
+            onUpdateAvatar = {handleUpdateAvatar}
+            isLoading      = {loading}/>
+
+          <AddPlacePopup
+            isOpen     = {isAddPlacePopupOpen}
+            onClose    = {closeAllPopups}
+            onAddPlace = {handleAddPlaceSubmit}
+            isLoading  = {loading}
+          />
+
+          <ConfirmDeletePopup
+            isOpen   = {isDeleteSubmitPopupOpen}
+            cardId   = {cardIdToDelete}
+            onSubmit = {handleCardDeleteSubmit}
+            onClose  = {closeAllPopups}/>
+
+          <ImagePopup
+            card    = {selectedCard}
+            onClose = {closeAllPopups}/>
+        </CurrentUserContext.Provider>
+
+          <Route>
+            {loggedIn ? <Redirect to="/"/> : <Redirect to="/sign-in"/>}
+          </Route>
+        </Switch>
 
         <Footer />
 
-        <EditProfilePopup
-          isOpen       = {isEditProfilePopupOpen}
-          onClose      = {closeAllPopups}
-          onUpdateUser = {handleUpdateUser}
-          isLoading    = {loading}/>
 
-        <EditAvatarPopup
-          isOpen         = {isEditAvatarPopupOpen}
-          onClose        = {closeAllPopups}
-          onUpdateAvatar = {handleUpdateAvatar}
-          isLoading      = {loading}/>
 
-        <AddPlacePopup
-          isOpen     = {isAddPlacePopupOpen}
-          onClose    = {closeAllPopups}
-          onAddPlace = {handleAddPlaceSubmit}
-          isLoading  = {loading}
-        />
-
-        <ConfirmDeletePopup
-          isOpen   = {isDeleteSubmitPopupOpen}
-          cardId   = {cardIdToDelete}
-          onSubmit = {handleCardDeleteSubmit}
-          onClose  = {closeAllPopups}/>
-
-        <ImagePopup
-          card    = {selectedCard}
-          onClose = {closeAllPopups}/>
-        </CurrentUserContext.Provider>
-
-        <Route>
-          {loggedIn ? <Redirect to="/"/> : <Redirect to="/sign-in"/>}
-        </Route>
-        </Switch>
       </div>
 
   );

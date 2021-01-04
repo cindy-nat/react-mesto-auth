@@ -8,3 +8,8 @@ margin-top: 216px;
   line-height: 22px;
   border: none;
 }
+
+.form__submit-button:hover {
+  opacity: .85;
+  cursor: pointer;
+}

@@ -1,8 +1,8 @@
 import React from "react";
 
-function InfoTooltip ({ onClose, imageUrl, text }) {
+function InfoTooltip ({ onClose, imageUrl, text, isOpen }) {
   return (
-    <div className={`popup`}>
+    <div className={`popup ${isOpen && 'popup_opened'}`}>
       <div className="popup__form">
         <div className="popup__picture-title"
              style={{backgroundImage: `url(${imageUrl})`}}></div>
