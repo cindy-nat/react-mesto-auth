@@ -28,12 +28,12 @@ export const register = (email, password) => {
       .then(response => getResponseData(response));
   }
 
-  export const checkTokenValidity = (jwt) => {
-  fetch(`${AUTH_URL}/users/me`,{
+  export const checkTokenValidity = (token) => {
+  return fetch(`${AUTH_URL}/users/me`,{
     method: 'GET',
     headers: {
       "Content-Type": "application/json",
-      "Authorization" : `Bearer ${jwt}`
+      "Authorization" : `Bearer ${token}`
     }
   })
     .then(response => getResponseData(response));

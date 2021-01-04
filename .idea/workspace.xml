@@ -4,7 +4,7 @@
     <list default="true" id="fb363f33-3aaf-4b0a-b0cc-b96f69e95b43" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +53,7 @@
       <workItem from="1609758222050" duration="6634000" />
       <workItem from="1609764893694" duration="90000" />
       <workItem from="1609783299263" duration="2004000" />
-      <workItem from="1609785327081" duration="3230000" />
+      <workItem from="1609785327081" duration="5451000" />
     </task>
     <servers />
   </component>

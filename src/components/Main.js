@@ -3,14 +3,14 @@ import Card from "./Card";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import Header from "./Header";
 
-function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCardDelete, onCardLike}) {
+function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCardDelete, onCardLike, email}) {
 
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
     <>
     <Header
-    email="email@mail.com"
+    email={email}
     text="Выйти"
     textColor="#A9A9A9"/>
   <main className="content">

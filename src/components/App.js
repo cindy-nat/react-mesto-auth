@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import {Route, Redirect, Switch, useHistory} from "react-router-dom";
 import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
@@ -12,6 +12,7 @@ import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import Login from "./Login";
 import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
+import * as Auth from '../utils/auth';
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
@@ -24,6 +25,22 @@ function App() {
   const [loading, setLoading] = React.useState(false);
   const [cardIdToDelete, setCardIdToDelete] = React.useState(null);
   const [loggedIn, setLoggedIn] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const history = useHistory();
+
+  //проверка токена
+  const tokenCheck = () => {
+    const jwt = localStorage.getItem('jwt');
+  Auth.checkTokenValidity(jwt)
+    .then(data=>{
+      if(data) {
+        setEmail(data.data.email);
+        setLoggedIn(true);
+      }
+    })
+
+
+  }
 
   //получение данных
   React.useEffect(()=>{
@@ -34,6 +51,13 @@ function App() {
         setCards(cards);
       })
       .catch(err => console.log(err))},[]);
+
+  React.useEffect(()=>{
+    tokenCheck();
+    if(loggedIn) {
+      history.push("/")
+    };
+  },[loggedIn]);
 
   //функции для установки состояния открытого попапа
     function handleEditAvatarClick () {
@@ -147,6 +171,7 @@ function App() {
                         cards         = {cards}
                         onCardLike    = {handleCardLike}
                         onCardDelete  = {handleCardDelete}
+                        email         = {email}
         >
       </ProtectedRoute>
           <EditProfilePopup
