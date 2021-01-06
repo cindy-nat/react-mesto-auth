@@ -48,9 +48,10 @@ function App() {
       history.push('/sign-in')
   }
 
+  //вход в пользователя
   const handleSignIn = () => {
     setLoggedIn(true);
-  }
+    tokenCheck();  }
 
   //получение данных
   React.useEffect(()=>{

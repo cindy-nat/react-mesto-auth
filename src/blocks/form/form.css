@@ -6,9 +6,9 @@
   justify-content: space-around;
 }
 
-@media screen and (max-width: 470px) {
-  .popup__form {
-    width: 75%;
+@media screen and (max-width: 570px) {
+  .form {
+    width: 80%;
   }
 
 }

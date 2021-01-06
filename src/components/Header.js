@@ -5,6 +5,7 @@ function Header({email, text, textColor, link, handleSignOut}) {
     return (
         <header className="header page__header">
             <img src={logo} alt="Логотип" className="header__logo"/>
+          <div className="header__small-screen-lines"> </div>
             <div className="header__container">
               <p className="header__email">{email}</p>
               <Link className="header__text"
