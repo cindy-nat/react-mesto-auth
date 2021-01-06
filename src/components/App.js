@@ -31,14 +31,19 @@ function App() {
   //проверка токена
   const tokenCheck = () => {
     const jwt = localStorage.getItem('jwt');
-  auth.checkTokenValidity(jwt)
-    .then(data=>{
-      if(data) {
-        setEmail(data.data.email);
-        setLoggedIn(true);
-        history.push("");
-      }
-    })
+    if(jwt){
+      auth.checkTokenValidity(jwt)
+      .then(data=>{
+        if(data) {
+          setEmail(data.data.email);
+          setLoggedIn(true);
+          history.push("/");
+        }
+      })
+    }
+    else {
+      localStorage.removeItem('jwt');
+    }
   }
 
   // выход из пользователя
@@ -51,13 +56,12 @@ function App() {
   //вход в пользователя
   const handleSignIn = () => {
     setLoggedIn(true);
-    tokenCheck();  }
+  }
 
   //получение данных
   React.useEffect(()=>{
     Promise.all([api.getInfo(), api.getCards()])
-      .then(info=>{
-        const [userInfo, cards] = info;
+      .then(([userInfo, cards])=>{
         setCurrentUser(userInfo);
         setCards(cards);
       })
@@ -159,30 +163,38 @@ function App() {
   return (
 
       <div className="page">
-        <Switch>
-          <Route path="/sign-in">
-            <Login handleLogin = {handleSignIn}/>
-          </Route>
-
-          <Route path="/sign-up">
-            <Register/>
-          </Route>
-
         <CurrentUserContext.Provider value={currentUser}>
-        <ProtectedRoute exact path="/"
-                        loggedIn={loggedIn}
-                        component={Main}
-                        onEditAvatar  = {handleEditAvatarClick}
-                        onEditProfile = {handleEditProfileClick}
-                        onAddPlace    = {handleAddPlaceClick}
-                        onCardClick   = {handleCardClick}
-                        cards         = {cards}
-                        onCardLike    = {handleCardLike}
-                        onCardDelete  = {handleCardDelete}
-                        email         = {email}
-                        onSignOut     = {handleSignOut}
-        >
-      </ProtectedRoute>
+
+          <Switch>
+            <Route path="/sign-in">
+              <Login handleLogin = {handleSignIn}/>
+            </Route>
+
+            <Route path="/sign-up">
+              <Register/>
+            </Route>
+
+            <ProtectedRoute exact path="/"
+                          loggedIn={loggedIn}
+                          component={Main}
+                          onEditAvatar  = {handleEditAvatarClick}
+                          onEditProfile = {handleEditProfileClick}
+                          onAddPlace    = {handleAddPlaceClick}
+                          onCardClick   = {handleCardClick}
+                          cards         = {cards}
+                          onCardLike    = {handleCardLike}
+                          onCardDelete  = {handleCardDelete}
+                          email         = {email}
+                          onSignOut     = {handleSignOut}
+          >
+            </ProtectedRoute>
+
+            <Route>
+              {loggedIn ? <Redirect to="/"/> : <Redirect to="/sign-in"/>}
+            </Route>
+
+          </Switch>
+
           <EditProfilePopup
             isOpen       = {isEditProfilePopupOpen}
             onClose      = {closeAllPopups}
@@ -211,19 +223,12 @@ function App() {
           <ImagePopup
             card    = {selectedCard}
             onClose = {closeAllPopups}/>
+
+          <Footer />
+
         </CurrentUserContext.Provider>
 
-          <Route>
-            {loggedIn ? <Redirect to="/"/> : <Redirect to="/sign-in"/>}
-          </Route>
-        </Switch>
-
-        <Footer />
-
-
-
       </div>
-
   );
 }
 
