@@ -3,6 +3,7 @@ import InfoTooltip from "./InfoTooltip";
 import Header from "./Header";
 import {useHistory, withRouter} from "react-router-dom";
 import * as Auth from '../utils/auth';
+import pictureError from '../images/error-picture.svg'
 
 
 function Login ({handleLogin}) {
@@ -48,12 +49,12 @@ function Login ({handleLogin}) {
     </form>
       </main>
       <InfoTooltip
-        imageUrl = "/react-mesto-auth/static/media/error-picture.df8eddf6.svg"
+        picture = {pictureError}
         text="Что-то пошло не так! Попробуйте ещё раз."
         isOpen = {infoTooltipIsOpened}
         onClose = {closePopup}/>
       </>
-  )
+  );
 }
 
 export default withRouter(Login);
