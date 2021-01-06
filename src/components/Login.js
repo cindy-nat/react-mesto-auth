@@ -1,6 +1,5 @@
 import React from "react";
 import InfoTooltip from "./InfoTooltip";
-import Header from "./Header";
 import {useHistory, withRouter} from "react-router-dom";
 import * as Auth from '../utils/auth';
 import pictureError from '../images/error-picture.svg'
@@ -36,18 +35,12 @@ function Login ({handleLogin}) {
 
   return (
     <>
-      <Header
-        text="Регистрация"
-        textColor="#FFFFFF"
-        link = "sign-up"/>
-      <main className="content">
     <form className="form" onSubmit={handleSubmit}>
       <h2 className="form__title">Вход</h2>
       <input className="form__input" placeholder="Email" type="email" onChange={handleEmailChange}/>
       <input className="form__input" placeholder="Пароль" type="password" onChange={handlePasswordChange}/>
       <button type="submit" className="form__submit-button">Войти</button>
     </form>
-      </main>
       <InfoTooltip
         picture = {pictureError}
         text="Что-то пошло не так! Попробуйте ещё раз."

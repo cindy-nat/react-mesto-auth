@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "./Card";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
-import Header from "./Header";
 
 function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCardDelete, onCardLike, email, onSignOut}) {
 
@@ -9,12 +8,6 @@ function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCard
 
   return (
     <>
-    <Header
-    email={email}
-    text="Выйти"
-    textColor="#A9A9A9"
-    handleSignOut = {onSignOut}/>
-  <main className="content">
      <section className="profile page__profile">
        <div className="profile__person">
          <div className="profile__avatar" onClick={onEditAvatar} style={{backgroundImage: `url(${currentUser.avatar})`}}></div>
@@ -35,7 +28,6 @@ function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCard
            onCardDelete = {onCardDelete}
            card         = {card}/>)
         }</section>
-    </main>
       </>);
 }
 export default Main;

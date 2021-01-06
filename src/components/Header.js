@@ -1,19 +1,25 @@
 import logo from '../images/logo.svg';
-import {Link} from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
 
-function Header({email, text, textColor, link, handleSignOut}) {
+function Header({email, handleSignOut}) {
     return (
         <header className="header page__header">
             <img src={logo} alt="Логотип" className="header__logo"/>
-          <div className="header__small-screen-lines"> </div>
+
+          <Route path="/sign-in">
+            <Link className="header__text" to="sign-up">Регистрация</Link>
+          </Route>
+          <Route path="/sign-up">
+            <Link className="header__text" to="sign-in">Войти</Link>
+          </Route>
+
+          <Route exact path="/">
             <div className="header__container">
               <p className="header__email">{email}</p>
-              <Link className="header__text"
-                    style={{color:`${textColor}`}}
-                    to={`${link}`}
-                    onClick = {handleSignOut}
-              >{text}</Link>
+              <button className="header__logout-button" onClick={handleSignOut}>Выйти</button>
             </div>
+          </Route>
+
         </header>)
 }
 export default Header;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "./Header";
 import * as Auth from '../utils/auth';
 import InfoTooltip from "./InfoTooltip";
 import donePicture from "../images/done-picture.svg";
@@ -31,11 +30,6 @@ function Register () {
 
   return (
     <>
-      <Header
-        text="Войти"
-        textColor="#FFFFFF"
-        link="sign-in"/>
-      <main className="content">
         <form className="form" onSubmit={handleSubmit}>
           <h2 className="form__title">Регистрация</h2>
           <input className="form__input" placeholder="Email" type="email" onChange={handleEmailChange}/>
@@ -43,7 +37,6 @@ function Register () {
           <button type="submit" className="form__submit-button">Зарегестрироваться</button>
           <p className="form__text">Уже зарегистрированы? <Link to="/sign-in" className="form__link">Войти</Link></p>
         </form>
-      </main>
       <InfoTooltip
         picture={donePicture}
         text="Вы успешно зарегистрировались!"
