@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb363f33-3aaf-4b0a-b0cc-b96f69e95b43" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/form/__submit-button/form__submit-button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/form/__submit-button/form__submit-button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/form/__title/form__title.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/form/__title/form__title.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/form/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/form/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/header/__email/header__email.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/header/__email/header__email.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/header/__text/header__text.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/header/__text/header__text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-    </list>
+    <list default="true" id="fb363f33-3aaf-4b0a-b0cc-b96f69e95b43" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +50,7 @@
       <workItem from="1609783299263" duration="2004000" />
       <workItem from="1609785327081" duration="7587000" />
       <workItem from="1609920402777" duration="1390000" />
-      <workItem from="1609922809266" duration="3282000" />
+      <workItem from="1609922809266" duration="3811000" />
     </task>
     <servers />
   </component>
