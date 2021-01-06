@@ -15,7 +15,6 @@ import ProtectedRoute from "./ProtectedRoute";
 import * as auth from '../utils/auth';
 import Header from "./Header";
 import InfoTooltip from "./InfoTooltip";
-import pictureError from "../images/error-picture.svg";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -58,7 +57,31 @@ function App() {
   }
 
   //вход в пользователя
-  const handleSignIn = () => setLoggedIn(true);
+  const handleSignIn = (email,password) => {
+    auth.authorize(email, password)
+      .then(data => {
+        if(data.token) {
+          localStorage.setItem('jwt', data.token);
+          history.push("/");
+          setLoggedIn(true);
+        }
+      })
+      .catch(err=>{
+        setInfoTooltipIsOpened(true);
+        console.log(err);
+      });
+  };
+
+  // регистрация пользователя
+  const handleRegister = (email, password) => {
+    auth.register(email, password)
+      .then(data => {
+        if (data) {
+          setInfoTooltipIsOpened(true);
+        }
+      })
+      .catch(err => console.log(err));
+  }
 
   //получение данных
   React.useEffect(()=>{
@@ -71,7 +94,7 @@ function App() {
 
   React.useEffect(()=>{
     tokenCheck();
-  },[]);
+  },[loggedIn]);
 
   //функции для установки состояния открытого попапа
     function handleEditAvatarClick () {
@@ -177,7 +200,7 @@ function App() {
             </Route>
 
             <Route path="/sign-up">
-              <Register/>
+              <Register handleRegister={handleRegister}/>
             </Route>
 
             <ProtectedRoute exact path="/"

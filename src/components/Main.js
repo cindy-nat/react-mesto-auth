@@ -21,12 +21,14 @@ function Main({onEditProfile,onAddPlace,onEditAvatar, onCardClick, cards, onCard
      </section>
       <section className="cards">
         {
-         cards.map((card)=> <Card
+         cards.map((card)=> (<Card
            key          = {card._id}
            onCardClick  = {onCardClick}
            onCardLike   = {onCardLike}
            onCardDelete = {onCardDelete}
-           card         = {card}/>)
+           card         = {card}/>
+           )
+         )
         }</section>
       </>);
 }

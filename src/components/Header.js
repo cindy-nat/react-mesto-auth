@@ -1,5 +1,5 @@
 import logo from '../images/logo.svg';
-import {Link, Route, Switch} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 
 function Header({email, handleSignOut}) {
     return (

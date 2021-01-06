@@ -1,31 +1,15 @@
 import React from "react";
-import {useHistory, withRouter} from "react-router-dom";
-import * as Auth from '../utils/auth';
-
 
 function Login ({handleLogin}) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-
-  const history = useHistory();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Auth.authorize(email, password)
-      .then(data => {
-        if(data.token) {
-          localStorage.setItem('jwt', data.token);
-          handleLogin();
-          history.push("/");
-        }
-      })
-      .catch(err=>{
-        //setInfoTooltip(true);
-        console.log(err);
-      });
+    handleLogin(email, password);
   }
 
   return (
@@ -38,4 +22,4 @@ function Login ({handleLogin}) {
   );
 }
 
-export default withRouter(Login);
+export default Login;
