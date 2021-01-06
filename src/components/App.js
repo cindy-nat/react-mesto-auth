@@ -12,13 +12,13 @@ import ConfirmDeletePopup from "./ConfirmDeletePopup";
 import Login from "./Login";
 import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
-import * as Auth from '../utils/auth';
+import * as auth from '../utils/auth';
 
 function App() {
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
-  const [isDeleteSubmitPopupOpen, setDeleteSubmitPopupOpen] = React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isDeleteSubmitPopupOpen, setIsDeleteSubmitPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({isOpen: false, link:'', name:''});
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
@@ -31,7 +31,7 @@ function App() {
   //проверка токена
   const tokenCheck = () => {
     const jwt = localStorage.getItem('jwt');
-  Auth.checkTokenValidity(jwt)
+  auth.checkTokenValidity(jwt)
     .then(data=>{
       if(data) {
         setEmail(data.data.email);
@@ -69,13 +69,13 @@ function App() {
 
   //функции для установки состояния открытого попапа
     function handleEditAvatarClick () {
-    setEditAvatarPopupOpen(true);
+    setIsEditAvatarPopupOpen(true);
   }
     function handleEditProfileClick (){
-    setEditProfilePopupOpen(true);
+      setIsEditProfilePopupOpen(true);
   }
     function handleAddPlaceClick () {
-    setAddPlacePopupOpen(true);
+    setIsAddPlacePopupOpen(true);
   }
 
   function handleCardClick({name, link}) {
@@ -84,10 +84,10 @@ function App() {
 
   //функция закрытия попапов
   function closeAllPopups () {
-      setEditAvatarPopupOpen(false);
-      setAddPlacePopupOpen(false);
-      setEditProfilePopupOpen(false);
-      setDeleteSubmitPopupOpen(false);
+      setIsEditAvatarPopupOpen(false);
+      setIsAddPlacePopupOpen(false);
+      setIsEditProfilePopupOpen(false);
+      setIsDeleteSubmitPopupOpen(false);
       setSelectedCard({isOpen:false, link: "",name: ""});
       setCardIdToDelete(null);
   }
@@ -130,7 +130,7 @@ function App() {
   //функция для открытия попапа подтверждения удаления, передача в ней ид карточки
   function handleCardDelete (cardId) {
       setCardIdToDelete(cardId);
-      setDeleteSubmitPopupOpen(true);
+      setIsDeleteSubmitPopupOpen(true);
   }
 
   //функция для удаления карточки при submit
