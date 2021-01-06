@@ -1,21 +1,16 @@
 import React from "react";
-import InfoTooltip from "./InfoTooltip";
 import {useHistory, withRouter} from "react-router-dom";
 import * as Auth from '../utils/auth';
-import pictureError from '../images/error-picture.svg'
 
 
 function Login ({handleLogin}) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [infoTooltipIsOpened, setInfoTooltip] = React.useState(false);
 
   const history = useHistory();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
-
-  const closePopup = () => setInfoTooltip(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,25 +23,18 @@ function Login ({handleLogin}) {
         }
       })
       .catch(err=>{
-        setInfoTooltip(true);
+        //setInfoTooltip(true);
         console.log(err);
       });
   }
 
   return (
-    <>
     <form className="form" onSubmit={handleSubmit}>
       <h2 className="form__title">Вход</h2>
       <input className="form__input" placeholder="Email" type="email" onChange={handleEmailChange}/>
       <input className="form__input" placeholder="Пароль" type="password" onChange={handlePasswordChange}/>
       <button type="submit" className="form__submit-button">Войти</button>
     </form>
-      <InfoTooltip
-        picture = {pictureError}
-        text="Что-то пошло не так! Попробуйте ещё раз."
-        isOpen = {infoTooltipIsOpened}
-        onClose = {closePopup}/>
-      </>
   );
 }
 

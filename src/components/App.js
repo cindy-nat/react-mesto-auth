@@ -14,6 +14,8 @@ import Register from "./Register";
 import ProtectedRoute from "./ProtectedRoute";
 import * as auth from '../utils/auth';
 import Header from "./Header";
+import InfoTooltip from "./InfoTooltip";
+import pictureError from "../images/error-picture.svg";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -27,6 +29,7 @@ function App() {
   const [cardIdToDelete, setCardIdToDelete] = React.useState(null);
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [email, setEmail] = React.useState("");
+  const [infoTooltipIsOpened, setInfoTooltipIsOpened] = React.useState(false);
   const history = useHistory();
 
   //проверка токена
@@ -55,9 +58,7 @@ function App() {
   }
 
   //вход в пользователя
-  const handleSignIn = () => {
-    setLoggedIn(true);
-  }
+  const handleSignIn = () => setLoggedIn(true);
 
   //получение данных
   React.useEffect(()=>{
@@ -95,6 +96,7 @@ function App() {
       setIsDeleteSubmitPopupOpen(false);
       setSelectedCard({isOpen:false, link: "",name: ""});
       setCardIdToDelete(null);
+      setInfoTooltipIsOpened(false)
   }
 
   //функция отвечающая за апдейт данных у пользователя
@@ -227,6 +229,10 @@ function App() {
 
           <ImagePopup
             card    = {selectedCard}
+            onClose = {closeAllPopups}/>
+
+          <InfoTooltip
+            isOpen = {infoTooltipIsOpened}
             onClose = {closeAllPopups}/>
 
           <Footer />
